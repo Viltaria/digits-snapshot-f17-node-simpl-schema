@@ -52,5 +52,13 @@ Template.Edit_Contact_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
+  'click .delete'(event, instance) {
+    event.preventDefault();
+
+    if (confirm('Are you sure you want to delete this user?') == true) {
+      Contacts.remove(FlowRouter.getParam('_id'));
+      FlowRouter.go('Home_Page');
+    }
+  }
 });
 
